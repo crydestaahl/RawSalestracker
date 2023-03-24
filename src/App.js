@@ -80,13 +80,6 @@ function App() {
                         ? 'Slutsålt'
                         : item.sales.totCapacity - item.sales.soldQtyNet}
                     </b></p>
-                  <button onClick={() => handleExpand(index)}>
-                    {index === expandedIndex ? 'Dölj info' : 'Mer info'}
-                  </button>
-                  <img src={item.img.thumb} alt={item.name} />
-                  <div className='scannedTickets'>
-                    
-                  </div>
                 </div>
               </div>
             </Fade>
