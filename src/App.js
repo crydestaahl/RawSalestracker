@@ -24,10 +24,6 @@ function App() {
       .catch((error) => console.error(error)); // Hantera eventuella fel
   }, []);
 
-  const handleExpand = (index) => {
-    setExpandedIndex(index === expandedIndex ? null : index);
-  };
-
   function formatTime(timeStr) {
     const date = new Date(timeStr);
     const isoString = date.toISOString();
