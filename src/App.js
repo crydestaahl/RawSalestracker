@@ -63,7 +63,7 @@ function App() {
                     .map(ticket => ( // map over the filtered tickets
                      <div className='ticketInfo'>
                       <p><b>{ticket.name + ': '}</b></p>
-                      <p>Totalt antal:  <b>{ticket.soldQtyNet}</b></p>
+                      <p>Sålt antal:  <b>{ticket.soldQtyNet}</b></p>
                      </div>                        
                     ))}
 
