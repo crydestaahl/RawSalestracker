@@ -8,9 +8,10 @@ function App() {
   const [expandedIndex, setExpandedIndex] = useState(null);
   const [loading, setLoading] = useState(false); // state variable for loading status
 
+
   useEffect(() => {
     // Ange url till api:et
-    const url = "https://manager.tickster.com/Statistics/SalesTracker/Api.ashx?keys=9KR9XX";
+    const url = "https://proxyserversalestracker.onrender.com/https://manager.tickster.com/Statistics/SalesTracker/Api.ashx?keys=9KR9XX";
 
     // Använd fetch för att göra en GET-förfrågan adsda
     fetch(url)
