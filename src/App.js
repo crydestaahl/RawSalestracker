@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Fade } from 'react-awesome-reveal';
+import logo from './raw.jpg'; 
 
 function App() {
   const [data, setData] = useState(null);
@@ -18,23 +19,20 @@ function App() {
     console.log('detta är ' + apiKey);
   };
 
-  const saveInput = () => {
-    setLoading(true);
-    const url = `https://manager.tickster.com/Statistics/SalesTracker/Api.ashx?keys=${apiKey}`;
-    console.log(url);
+  useEffect(() => {
+    // Ange url till api:et
+    const url = "https://manager.tickster.com/Statistics/SalesTracker/Api.ashx?keys=9KR9XX";
 
-    fetch(
-      `https://manager.tickster.com/Statistics/SalesTracker/Api.ashx?keys=${apiKey}`)
-      .then((response) => response.json())
+    // Använd fetch för att göra en GET-förfrågan
+    fetch(url)
+      .then((response) => response.json()) // Konvertera svaret till json
       .then((data) => {
         setData(data);
-        // Spara data i local storage -
-        localStorage.setItem('cachedData', JSON.stringify(data));
         console.log(data);
         setLoading(false);
       })
-      .catch((error) => console.error(error));
-  };
+      .catch((error) => console.error(error)); // Hantera eventuella fel
+  }, []);
 
   const handleExpand = (index) => {
     setExpandedIndex(index === expandedIndex ? null : index);
@@ -48,61 +46,18 @@ function App() {
     return formattedDate + ' ' + formattedTime;
   }
 
-  if (!data) {
-    return (
-      <div className='keyInput'>
-        <h3>Salestrackernyckel:</h3>
-        <input
-          type='text'
-          value={inputData}
-          onChange={handleInput}
-          placeholder='T ex 12345'
-        />
-        <button onClick={saveInput}>Hämta</button>
-      </div>
-    );
-  }
-
-  // Räkna ut hur många tickets som scannats
-  const totalScannedTickets = data.reduce((acc, item) => {
-    console.log(acc);
-
-    if (item.gfs && item.gfs.entrd) {
-      return acc + item.gfs.entrd;
-    }
-    return acc;
-  }, 0);
-
-  if (!data) {
-    return (
-      <div className='keyInput'>
-        <h3>Salestrackernyckel:</h3>
-        <input
-          type='text'
-          value={inputData}
-          onChange={handleInput}
-          placeholder='T ex 12345'
-        />
-        <button onClick={saveInput}>Hämta</button>
-      </div>
-    );
-  }
+ if (!data) {
+  <p>No data...</p>
+ }
 
   return (
     <div className='App'>
       <header className='App-header'>
         <div className='eventFeed'>
-          <div className='keyInput'>
-            <h3>Salestrackernyckel:</h3>
-            <input
-              type='text'
-              value={inputData}
-              onChange={handleInput}
-              placeholder='T ex 12345'
-            />
-            <button onClick={saveInput}>Hämta</button>
-          </div>
-          {data.map((item, index) => (
+        <img src={logo} className='eventFeedLogo'/>
+          
+          {
+            data ? data.map((item, index) => (
             <Fade>
               <div
                 className={`eventCard ${
@@ -146,7 +101,14 @@ function App() {
                 </div>
               </div>
             </Fade>
-          ))}
+          ))
+        :
+        <div>
+          <img src={logo} className="logo"/>  
+          <p style={{color: 'fc0f17'}}>Loading</p>
+        </div>
+           
+        }
           {!loading ? <p>Ingen data.</p> : ''}
         </div>
       </header>
