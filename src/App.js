@@ -5,7 +5,6 @@ import logo from './raw.jpg';
 
 function App() {
   const [data, setData] = useState(null);
-  const [expandedIndex, setExpandedIndex] = useState(null);
   const [loading, setLoading] = useState(false); // state variable for loading status
 
 
@@ -47,9 +46,7 @@ function App() {
             <Fade>
               
               <div
-                className={`eventCard ${
-                  index === expandedIndex ? 'transition' : ''
-                }`}
+                className="eventCardndex"
                 key={item.erc}
                 loading='lazy'
               >
