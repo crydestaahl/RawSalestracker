@@ -6,18 +6,7 @@ import logo from './raw.jpg';
 function App() {
   const [data, setData] = useState(null);
   const [expandedIndex, setExpandedIndex] = useState(null);
-  const [inputData, setInputData] = useState('');
   const [loading, setLoading] = useState(false); // state variable for loading status
-  const [apiKey, setApiKey] = useState('9KR9XX');
-
-  console.log(loading);
-  const handleInput = (e) => {
-    console.log(e.target.value);
-    const newInput = e.target.value.toUpperCase();
-    setInputData(newInput);
-    setApiKey(newInput);
-    console.log('detta är ' + apiKey);
-  };
 
   useEffect(() => {
     // Ange url till api:et
@@ -90,8 +79,6 @@ function App() {
                         ? 'Slutsålt'
                         : item.sales.totCapacity - item.sales.soldQtyNet}
                     </b></p>
-
-
                   <button onClick={() => handleExpand(index)}>
                     {index === expandedIndex ? 'Dölj info' : 'Mer info'}
                   </button>
