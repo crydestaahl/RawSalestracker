@@ -54,11 +54,12 @@ function App() {
     <div className='App'>
       <header className='App-header'>
         <div className='eventFeed'>
-        <img src={logo} className='eventFeedLogo'/>
+          {data ? <img src={logo} alt="logo" className='eventFeedLogo'/> : ''}
           
           {
             data ? data.map((item, index) => (
             <Fade>
+              
               <div
                 className={`eventCard ${
                   index === expandedIndex ? 'transition' : ''
@@ -104,7 +105,7 @@ function App() {
           ))
         :
         <div>
-          <img src={logo} className="logo"/>  
+          <img src={logo} alt="logo" className="logo"/>  
           <p style={{color: 'fc0f17'}}>Loading</p>
         </div>
            

@@ -24,8 +24,8 @@
   background-color: #e7e8d2;
   border-radius: 20px 20px 20px 20px;
   height: 461px;
+  max-width: 311px;
   overflow: hidden;
-  max-width: 485px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   transition: height 0.5s ease-in-out, width 0.5s ease-in-out;
 }
@@ -36,7 +36,6 @@
 
 .transition {
   height: 771px;
-
 }
 
 .eventInfo {
@@ -51,6 +50,7 @@
 
 .eventFeedLogo {
   width: 30vw;
+  max-width: 243px;
 }
 
 .logo {
