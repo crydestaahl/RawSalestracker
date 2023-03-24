@@ -12,7 +12,7 @@ function App() {
     // Ange url till api:et
     const url = "https://manager.tickster.com/Statistics/SalesTracker/Api.ashx?keys=9KR9XX";
 
-    // Använd fetch för att göra en GET-förfrågan
+    // Använd fetch för att göra en GET-förfrågan adsda
     fetch(url)
       .then((response) => response.json()) // Konvertera svaret till json
       .then((data) => {
