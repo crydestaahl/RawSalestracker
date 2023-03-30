@@ -50,11 +50,12 @@
 
 .eventFeedLogo {
   width: 30vw;
-  max-width: 243px;
+  max-width: 117.89px;
 }
 
 .logo {
-  width: 80vw;
+  width: 30vw;
+  max-width: 117.89px;
   margin-top: 44%;
   animation: grow 2s infinite;
 }

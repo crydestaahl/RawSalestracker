@@ -82,7 +82,7 @@ function App() {
           ))
         :
         <div>
-          <img src={logo} alt="logo" className="logo"/>  
+          <img src={logo} alt="logo" className="eventFeedLogo"/>  
           <p style={{color: 'fc0f17'}}>Loading</p>
         </div>
            
